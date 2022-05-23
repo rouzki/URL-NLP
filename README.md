@@ -36,7 +36,6 @@
 │       └───models                          # Directory containing Bert type model finetuned used for inference
 │       
 ├───preprocessing                           # Folder containing code used for preprocessing
-│       EDA.ipynb                            # some Exploratory Data Analaysis on the data
 │       preprocess.py                        # script to run preprocessing
 │       preprocess_urls.ipynb                # notebook used
 │   
@@ -104,9 +103,11 @@ python train_bert.py
 cd inference
 docker-compose up --build
 ```
+  - Note that you may want to get my trained model, get it from [here](https://drive.google.com/drive/folders/1-Tx69YBCvMvrobPsd-f3DxS-HjiLEbd6) and put both files on inference/service/models/.
 
  ## Feedback and point to check:
  - Bert types model doesn't perform well, main raison: no context meaning in the urls, the statistical approche (tfidf) is better because it doesn't depend on the context it's just a convertion of each word (token) into one statistical embedding. 
+ - Use some Neural networks with Gloove/FastText embeddings or Train proper embeddings.
  - Handle Imbalance by using weighted loss on the BCElosswithlogits()
  - Use data augmentation for minority labels.
  - [Convert Model to ONNX format to optimize inference latency](https://huggingface.co/docs/transformers/serialization#onnx)
