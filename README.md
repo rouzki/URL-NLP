@@ -86,7 +86,7 @@ python train_bert.py
 
 
  ## Training Statistical models:
-  - Training proceduser is explained in the Notebook (statistical_embedding_models/tf_idf.ipynb)
+  - Training procedure is explained in the Notebook (statistical_embedding_models/tf_idf.ipynb)
   - Models results
 
 
@@ -111,5 +111,5 @@ docker-compose up --build
  - Handle Imbalance by using weighted loss on the BCElosswithlogits()
  - Use data augmentation for minority labels.
  - [Convert Model to ONNX format to optimize inference latency](https://huggingface.co/docs/transformers/serialization#onnx)
- - Task Similar to the one in this [Paper by Mircrosoft](https://arxiv.org/pdf/2106.05256.pdf) but the problem is that the model is not yet opensourced but would recommend just using a scrapper then camembert.
+ - Task Similar to the one in this [Paper by Mircrosoft](https://arxiv.org/pdf/2106.05256.pdf) but the problem is that the model is not yet opensourced but would recommend just using a scrapper then Bert type models.
  - Going deeper into production and deployement with AWS, check my article here (https://towardsdatascience.com/deploy-fastai-transformers-based-nlp-models-using-amazon-sagemaker-and-creating-api-using-aws-7ea39bbcc021)
