@@ -1,0 +1,5 @@
+fastapi==0.61.2
+uvicorn==0.17.6
+torch==1.11.0
+transformers
+sklearn

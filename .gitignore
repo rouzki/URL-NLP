@@ -1,0 +1,8 @@
+bert_types_models/models_trained/bertm_5epochs_dropout/*.h5
+bert_types_models/models_trained/bertm_5epochs_dropout_concat/*.h5
+bert_types_models/models_trained/bertm_5epochs_dropout_freezing_concat/*.h5
+bert_types_models/models_trained/bertm_5epochs_nodropout/*.h5
+bert_types_models/models_trained/camembert_5epochs_nodropout/*.h5
+bert_types_models/models_trained/flaubert_5epochs_nodropout/*.h5
+
+inference/service/models/*.h5
