@@ -24,7 +24,7 @@ MODEL_DIR = "models"
 
 MODEL_NAME = "model_finetuned.h5"
 MLB_NAME = "mlb.pickle"
-TOKENIZER_NAME = "camembert-base"
+TOKENIZER_NAME = "bert-base-multilingual-uncased"
 
 model = torch.load(os.path.join(MODEL_DIR, MODEL_NAME), map_location='cpu')
 model.eval()
@@ -67,7 +67,6 @@ def predict(data:Data):
 
 
     cleaned_urls = [preprocess_url(url) for url in data.urls]
-
     inputs = tokenizer(
         cleaned_urls,
         truncation=True,
@@ -79,7 +78,6 @@ def predict(data:Data):
         return_tensors="pt",
     )
 
-    print(inputs['input_ids'].shape)
     out = model(inputs["input_ids"], attention_mask=inputs["attention_mask"])
 
     pred_probs = torch.sigmoid(out).detach().numpy()
