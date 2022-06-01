@@ -21,11 +21,9 @@ class BertCustomModel(torch.nn.Module):
     """
     CUSTOM FUNCTION to use Bert with a classifier
     classifier is a linear layer with dropout 
-
     */ params /*
     - concat_hidden_states:
     if we want to apply a concatenation on the all 4 layers hidden states
-
     - freeze_bert:
     function to Freeze bert (bert params not updates during training) ie: train only the classifier.
     """
@@ -52,7 +50,7 @@ class BertCustomModel(torch.nn.Module):
                 param.requires_grad = False
   
     def forward(self, input_ids, attention_mask):
-        bert_output = self.bert(input_ids, attention_mask) ### model output: hidden_state + pooled_output
+        bert_output = self.bert(input_ids, attention_mask) ### model output: hidden_state [1, nbr_tokens, 768] + pooled_output [1, 1, 768]
 
         #### concat hidden states
         if self.concat_hidden_states:

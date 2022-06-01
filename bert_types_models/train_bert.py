@@ -1,19 +1,15 @@
-import pandas as pd
 import numpy as np
 import pickle5
 import random, os
 from tqdm.notebook import tqdm, trange
 import torch
-import transformers
 from sklearn.model_selection import train_test_split
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 
-from keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MultiLabelBinarizer
-from sklearn import metrics
 
 from utils import URLDataset, BertCustomModel, loss_fn, evaluation_scores
 
@@ -66,7 +62,7 @@ X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_st
 ### Get Tokenizer
 print("Getting Bert Model/Tokenizer")
 print(f"Choosed model is {PRE_TRAINED_MODEL_NAME}")
-tokenizer = BertTokenizer.from_pretrained(PRE_TRAINED_MODEL_NAME)
+tokenizer = AutoTokenizer.from_pretrained(PRE_TRAINED_MODEL_NAME)
 
 ### Create model
 model = BertCustomModel(model_name = PRE_TRAINED_MODEL_NAME, num_classes = len(class_names))
